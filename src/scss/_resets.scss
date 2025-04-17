@@ -1,0 +1,45 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Public Sans" sans-serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: #696868;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  display: flex;
+  object-fit: cover;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+main {
+  background-color: #f2f3f7;
+}
+
+#root {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+}

@@ -1,6 +1,20 @@
 import style from "./Login.module.scss";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useLogin } from "../../hooks/useLogin";
 
 function Login() {
+  const { data, isPending, login } = useLogin();
+  const [showPassword, setShowPassword] = useState(false);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+
+    const email = formData.get("email");
+    const password = formData.get("password");
+    login(email, password);
+  };
+
   return (
     <div className={style.loginWrapper}>
       <div className={style.finance}>
@@ -20,14 +34,34 @@ function Login() {
       <div className={style.right}>
         <div className={style.card}>
           <h2>Login</h2>
-          <form>
+          <form onSubmit={handleSubmit}>
             <label>Email</label>
-            <input type="email" placeholder="Enter your email" />
+            <input type="email" name="email" placeholder="Enter your email" />
             <label>Password</label>
-            <input type="password" placeholder="Enter your password" />
-            <button type="submit">Login</button>
+            <div className={style.passwordWrapper}>
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="Enter your password"
+              />
+              <img
+                src={
+                  showPassword
+                    ? "/icon-hide-show.svg"
+                    : "/icon-hide-password.svg"
+                }
+                alt="Toggle visibility"
+                className={style.eyeIcon}
+                onClick={() => setShowPassword((prev) => !prev)}
+              />
+            </div>
+            {!isPending ? (
+              <button type="submit">Login</button>
+            ) : (
+              <button disabled>Loading...</button>
+            )}
             <p>
-              Need to create an account? <a href="/register">Sign Up</a>
+              Need to create an account? <Link to="/register">Sign Up</Link>
             </p>
           </form>
         </div>

@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "../components/sidebar/Sidebar";
-import style from "./MainLayout.module.scss";
+import { Toaster } from "react-hot-toast";
+import UserCard from "../components/usercard/UserCard";
 
 function MainLayout() {
   return (
@@ -9,6 +10,8 @@ function MainLayout() {
       <main>
         <Outlet />
       </main>
+      <UserCard />
+      <Toaster position="top-center" reverseOrder={false} />
     </>
   );
 }

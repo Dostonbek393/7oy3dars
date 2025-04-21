@@ -120,6 +120,32 @@
   font-weight: bold;
 }
 
+.passwordWrapper {
+  position: relative;
+
+  input {
+    width: 100%;
+    padding-right: 40px;
+  }
+
+  .eyeIcon {
+    position: absolute;
+    right: 10px;
+    top: 25px;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    object-fit: contain;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
 @media screen and (max-width: 800px) {
   .left {
     display: none;

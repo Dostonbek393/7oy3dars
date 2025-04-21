@@ -1,6 +1,35 @@
 import style from "./Register.module.scss";
+import { Link } from "react-router-dom";
+import { useRegister } from "../../hooks/useRegister";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
+  const [isPasswordTooShort, setIsPasswordTooShort] = useState(false);
+  const { isPending, register } = useRegister();
+  const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+
+    const displayName = formData.get("displayName");
+    const email = formData.get("email");
+    const password = formData.get("password");
+
+    if (password.length < 8) {
+      setIsPasswordTooShort(true);
+      return;
+    } else {
+      setIsPasswordTooShort(false);
+    }
+
+    register(displayName, email, password, () => {
+      navigate("/overview");
+    });
+  };
+
   return (
     <div className={style.loginWrapper}>
       <div className={style.finance}>
@@ -20,17 +49,50 @@ function Register() {
       <div className={style.right}>
         <div className={style.card}>
           <h2>Sign Up</h2>
-          <form>
+          <form onSubmit={handleSubmit}>
             <label>Name</label>
-            <input type="name" placeholder="Enter your name" />
+            <input
+              type="name"
+              label="Display Name:"
+              name="displayName"
+              placeholder="Enter your name"
+            />
             <label>Email</label>
-            <input type="email" placeholder="Enter your email" />
+            <input
+              type="email"
+              label="Email:"
+              name="email"
+              placeholder="Enter your email"
+            />
             <label>Create Password</label>
-            <input type="password" placeholder="Enter your password" />
-            <span>Passwords must be at least 8 characters</span>
-            <button type="submit">Create Account</button>
+            <div className={style.passwordWrapper}>
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="Enter your password"
+              />
+              <img
+                src={
+                  showPassword
+                    ? "/icon-hide-show.svg"
+                    : "/icon-hide-password.svg"
+                }
+                alt="Toggle visibility"
+                className={style.eyeIcon}
+                onClick={() => setShowPassword((prev) => !prev)}
+              />
+            </div>
+            <span style={{ color: isPasswordTooShort ? "red" : "inherit" }}>
+              Passwords must be at least 8 characters
+            </span>
+            {!isPending && <button type="submit">Create Account</button>}
+            {isPending && (
+              <button type="submit" disabled>
+                Loading...
+              </button>
+            )}
             <p>
-              Need to create an account? <a href="/login">Login</a>
+              Need to create an account? <Link to="/login">Login</Link>
             </p>
           </form>
         </div>

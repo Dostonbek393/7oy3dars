@@ -7,22 +7,19 @@ import { doc, setDoc } from "firebase/firestore";
 import { login } from "../app/features/userSlice";
 
 export const useRegister = () => {
-  const [isPending, setIsPending] = useState(false);
+  const [isPending, setIsPending] = useState(null);
   const [data, setData] = useState(null);
   const dispatch = useDispatch();
 
   const register = async (displayName, email, password) => {
+    setIsPending(true);
     try {
-      setIsPending(true);
       const req = await createUserWithEmailAndPassword(auth, email, password);
-
       await updateProfile(auth.currentUser, {
-        displayName,
+        displayName: displayName,
         photoURL: `https://api.dicebear.com/9.x/adventurer/svg?seed=${displayName}`,
       });
-
       const user = req.user;
-
       await setDoc(doc(db, "users", user.uid), {
         displayName: user.displayName,
         photoURL: user.photoURL,
@@ -30,7 +27,7 @@ export const useRegister = () => {
       });
 
       dispatch(login(user));
-      toast.success(`Welcome, ${displayName}`);
+      toast.success(`Welcome, ${req.user.displayName}`);
       setData(user);
     } catch (error) {
       toast.error(`Error: ${error.message}`);

@@ -2,18 +2,15 @@ import style from "./Register.module.scss";
 import { Link } from "react-router-dom";
 import { useRegister } from "../../hooks/useRegister";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 function Register() {
   const [isPasswordTooShort, setIsPasswordTooShort] = useState(false);
   const { isPending, register } = useRegister();
   const [showPassword, setShowPassword] = useState(false);
-  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-
     const displayName = formData.get("displayName");
     const email = formData.get("email");
     const password = formData.get("password");
@@ -25,9 +22,8 @@ function Register() {
       setIsPasswordTooShort(false);
     }
 
-    register(displayName, email, password, () => {
-      navigate("/overview");
-    });
+    register(displayName, email, password);
+    e.target.reset();
   };
 
   return (

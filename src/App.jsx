@@ -15,10 +15,15 @@ import {
 } from "./pages";
 
 import { ProtectedRoutes } from "./components";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase/config";
+import { isAuthReady, login } from "./app/features/userSlice";
 
 function App() {
-  const { user } = useSelector((store) => store.user);
+  const dispatch = useDispatch();
+  const { user, authReady } = useSelector((store) => store.user);
   const routes = createBrowserRouter([
     {
       path: "/",
@@ -63,7 +68,16 @@ function App() {
       element: user ? <Navigate to="/" /> : <Register />,
     },
   ]);
-  return <RouterProvider router={routes} />;
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user.displayName && user.photoURL) {
+        dispatch(login(user));
+      }
+      dispatch(isAuthReady());
+    });
+  }, []);
+
+  return <> {authReady && <RouterProvider router={routes} />}</>;
 }
 
 export default App;

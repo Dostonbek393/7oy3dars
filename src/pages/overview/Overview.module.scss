@@ -165,25 +165,167 @@
   }
 }
 
-.transactions {
-  margin: 3rem 2.4rem;
+.rowSection {
+  display: flex;
+}
 
-  &Header {
+.budgets {
+  width: 50.7rem;
+  height: 41rem;
+  background: $white;
+  padding: 3.2rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  margin-top: 3.2rem;
+  margin-right: 4rem;
+  margin-bottom: 2.4rem;
+
+  &__text {
+    font-size: $text-preset-2;
+    font-weight: 700;
+    color: $grey-900;
+  }
+
+  &__link {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
+    gap: 1.2rem;
+    color: $grey-500;
+    font-size: $text-preset-4;
+    font-weight: 400;
+    cursor: pointer;
+  }
+}
+
+.budgets__icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5.1rem;
+}
+
+.budgetsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.donutSegment {
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.35s;
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+
+.donutTextTop {
+  font-size: 0.5rem;
+  font-weight: 700;
+  color: $grey-900;
+}
+
+.donutTextBottom {
+  color: $grey-500;
+  font-size: 0.2rem;
+  font-weight: 400;
+}
+
+.budgetItem {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+
+.budgetItems {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1rem;
+}
+
+.budgetColor {
+  width: 0.4rem;
+  height: 4.3rem;
+  display: inline-block;
+}
+
+.budget__texts {
+  font-size: $text-preset-5;
+  font-weight: 400;
+  color: $grey-500;
+}
+
+.budget__total {
+  font-size: $text-preset-4;
+  font-weight: 700;
+  color: $grey-900;
+}
+
+.bills {
+  width: 50.7rem;
+  height: 32.7rem;
+  border-radius: 1.2rem;
+  padding: 3.2rem;
+  background-color: $white;
+
+  &__details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   &__text {
+    font-size: $text-preset-2;
     font-weight: 700;
-    font-size: 1.2rem;
-    color: #1c1b1f;
+    color: $grey-900;
   }
+}
+
+.bills__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 3.2rem;
+}
+
+.bills__card {
+  display: flex;
+  align-items: center;
+  background-color: #f9f5f1;
+  padding: 1rem;
+  border-radius: 1rem;
+  width: 100%;
+  height: 6.1rem;
+}
+
+.bills__line {
+  width: 4px;
+  height: 2.5rem;
+  border-radius: 8px;
+  margin-right: 1rem;
+}
+
+.bills__info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.bills__label {
+  font-size: $text-preset-4;
+  color: $grey-500;
+  font-weight: 400;
+}
+
+.bills__amount {
+  font-size: $text-preset-4;
+  color: $grey-900;
+  font-weight: 700;
 }
 
 .transactions {
   margin-left: 4rem;
+  margin-bottom: 3.2rem;
 }
 
 .transactionCard {
@@ -292,6 +434,7 @@
     max-width: 68.8rem;
     height: 21.8rem;
     margin: 0 4rem 0 4rem;
+    margin-bottom: 2.4rem;
 
     .potsContent {
       .potItems {
@@ -309,6 +452,28 @@
   .transactions {
     margin-left: 4rem;
     margin-right: 4rem;
+  }
+
+  .budgets {
+    margin-left: 4rem;
+    max-width: 68.8rem;
+    width: 100%;
+  }
+
+  .budgets__icons {
+    justify-content: space-around;
+    gap: 1rem;
+  }
+
+  .bills {
+    width: 69.8rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    margin-bottom: 3.2rem;
+  }
+
+  .rowSection {
+    flex-direction: column;
   }
 }
 
@@ -334,6 +499,7 @@
     height: 32.4rem;
     margin: 0 1.6rem 0 1.6rem;
     padding: 2.4rem 2rem;
+    margin-bottom: 2.4rem;
 
     .potsContent {
       display: flex;
@@ -360,5 +526,36 @@
   .transactions {
     margin-left: 1.6rem;
     margin-right: 1.6rem;
+  }
+
+  .budgets {
+    margin-left: 1.6rem;
+    max-width: 34.3rem;
+    width: 100%;
+    height: 46.6rem;
+  }
+
+  .budgets__icons {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .budgetList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 5rem;
+  }
+
+  .bills {
+    width: 34.3rem;
+    height: 31.1rem;
+    margin-left: 1.6rem;
+    margin-right: 1.6rem;
+    margin-bottom: 2.4rem;
+    padding: 2.4rem 2rem;
+  }
+
+  .rowSection {
+    flex-direction: column;
   }
 }

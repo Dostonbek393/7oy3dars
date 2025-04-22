@@ -70,7 +70,7 @@ function App() {
   ]);
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      if (user.displayName && user.photoURL) {
+      if (user && user.displayName && user.photoURL) {
         dispatch(login(user));
       }
       dispatch(isAuthReady());

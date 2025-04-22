@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useLogin } from "../../hooks/useLogin";
 
 function Login() {
-  const { data, isPending, login } = useLogin();
+  const { isPending, login } = useLogin();
   const [showPassword, setShowPassword] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();

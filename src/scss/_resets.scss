@@ -18,6 +18,7 @@ body {
   font-size: 1.4rem;
   line-height: 1;
   color: #696868;
+  background: $beige-100;
 }
 
 ul,
@@ -38,4 +39,11 @@ a {
 #root {
   display: grid;
   grid-template-columns: 300px 1fr;
+}
+
+@media (max-width: 800px) {
+  #root {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 }

@@ -68,7 +68,7 @@ function Sidebar() {
       <div className={style.register}>
         <li>
           <NavLink
-            to="/"
+            to="/login"
             className={({ isActive }) =>
               isActive ? `${style.item} ${style.active}` : style.item
             }

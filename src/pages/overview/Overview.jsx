@@ -28,6 +28,16 @@ function Overview() {
 
   const totalSaved = pots.reduce((sum, pot) => sum + pot.total, 0);
 
+  const totalBudgetLimit = budgets.reduce((sum, b) => sum + b.maximum, 0);
+
+  const totalSpent = budgets.reduce((sum, b) => {
+    const spentInCategory = transactions
+      .filter((t) => t.category === b.category)
+      .reduce((catSum, t) => catSum + Math.abs(t.amount), 0);
+
+    return sum + spentInCategory;
+  }, 0);
+
   return (
     <div className={style.overview}>
       <h2 className={style.overview__text}>Overview</h2>
@@ -170,7 +180,7 @@ function Overview() {
                 <svg
                   width="24.7rem"
                   height="24.9rem"
-                  viewBox="0 0 36 36"
+                  viewBox="0 0.5 37 36"
                   className={style.donutChart}
                 >
                   {budgets.map((budget, index) => {
@@ -208,7 +218,7 @@ function Overview() {
                     textAnchor="middle"
                     className={style.donutTextTop}
                   >
-                    $338
+                    ${totalSpent.toFixed(0)}
                   </text>
                   <text
                     x="18"
@@ -216,7 +226,7 @@ function Overview() {
                     textAnchor="middle"
                     className={style.donutTextBottom}
                   >
-                    of $975 limit
+                    of ${totalBudgetLimit.toFixed(0)} limit
                   </text>
                 </svg>
               </div>

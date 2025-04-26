@@ -17,7 +17,6 @@ body {
   font-weight: 400;
   font-size: 1.4rem;
   line-height: 1;
-  color: #696868;
   background: $beige-100;
 }
 
@@ -38,7 +37,11 @@ a {
 
 #root {
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 30rem 1fr;
+
+  &.collapsed {
+    grid-template-columns: 8.8rem 1fr;
+  }
 }
 
 @media (max-width: 800px) {

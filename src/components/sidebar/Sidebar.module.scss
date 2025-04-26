@@ -2,11 +2,66 @@
   background-color: $grey-900;
   height: 100vh;
   padding-right: 2.4rem;
+  border-radius: 0 1.6rem 1.6rem 0;
   display: flex;
   flex-direction: column;
   color: rgba(179, 179, 179, 1);
   justify-content: space-between;
-  height: 100%;
+  overflow-y: auto;
+  overflow-x: visible;
+  position: sticky;
+  top: 0;
+  width: 30rem;
+  transition: width 0.3s ease;
+}
+
+.minimized {
+  width: 8.8rem;
+  overflow: hidden;
+}
+
+.minimized .menu {
+  align-items: center;
+}
+
+.minimized .item {
+  justify-content: center;
+  padding: 1.6rem 0;
+  align-items: center;
+}
+
+.minimized .register {
+  align-items: center;
+  justify-content: center;
+}
+
+.menu span,
+.register span {
+  transition: opacity 0.3s ease;
+}
+
+.minimized .menu span,
+.minimized .register span {
+  opacity: 0;
+  visibility: hidden;
+  width: 0;
+  display: none;
+}
+
+.minimized .item img,
+.minimized .register img {
+  display: block;
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.minimized .item img {
+  margin-left: 2rem;
+}
+
+.minimized .register img {
+  margin-right: auto;
+  margin-left: 3.2rem;
 }
 
 .logo {

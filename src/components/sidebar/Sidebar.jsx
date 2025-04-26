@@ -1,11 +1,19 @@
 import style from "./Sidebar.module.scss";
 import { NavLink } from "react-router-dom";
 
-function Sidebar() {
+function Sidebar({ isMinimized, setIsMinimized }) {
+  function handleToggleSidebar() {
+    setIsMinimized((prev) => !prev);
+  }
+
   return (
-    <div className={style.sidebar}>
+    <div className={`${style.sidebar} ${isMinimized ? style.minimized : ""}`}>
       <div>
-        <img src="/logo-large.svg" alt="logo" className={style.logo} />
+        <img
+          src={isMinimized ? "/logo-small.svg" : "/logo-large.svg"}
+          alt="logo"
+          className={style.logo}
+        />
         <ul className={style.menu}>
           <li>
             <NavLink
@@ -68,12 +76,15 @@ function Sidebar() {
       <div className={style.register}>
         <li>
           <NavLink
-            to="/login"
+            onClick={handleToggleSidebar}
             className={({ isActive }) =>
               isActive ? `${style.item} ${style.active}` : style.item
             }
           >
-            <img src="/icon-minimize-menu.svg" alt="Minimeze Menu" />
+            <img
+              src={isMinimized ? "/Vector.svg" : "/icon-minimize-menu.svg"}
+              alt="Minimize Menu"
+            />
             <span>Minimize Menu</span>
           </NavLink>
         </li>

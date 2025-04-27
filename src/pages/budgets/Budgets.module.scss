@@ -1,0 +1,81 @@
+.budgets {
+  padding: 3.2rem 4rem;
+
+  &__text {
+    font-weight: 700;
+    color: $grey-900;
+    font-size: $text-preset-1;
+  }
+
+  &__cart {
+    background-color: $white;
+    padding: 3.2rem;
+    border-radius: 1.2rem;
+    width: 42.8rem;
+    height: 59.9rem;
+    margin-top: 3.2rem;
+  }
+
+  &__chart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__segment {
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.35s;
+    transform: rotate(-90deg);
+    transform-origin: center;
+  }
+
+  &__textTop {
+    font-size: 0.5rem;
+    font-weight: 700;
+    color: $grey-900;
+  }
+
+  &__textBottom {
+    color: $grey-500;
+    font-size: 0.2rem;
+    font-weight: 400;
+  }
+
+  &__list {
+    margin-top: 3.2rem;
+  }
+
+  &__item {
+    margin-top: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.6rem;
+    padding-bottom: 1.6rem;
+    border-bottom: 1px solid $grey-100;
+  }
+
+  &__itemss {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+  }
+
+  &__color {
+    width: 0.4rem;
+    height: 2.1rem;
+    border-radius: 0.8rem;
+  }
+
+  &__category {
+    font-size: $text-preset-4;
+    font-weight: 400;
+    color: $grey-500;
+  }
+
+  &__total {
+    font-size: $text-preset-3;
+    font-weight: 700;
+    color: $grey-900;
+  }
+}

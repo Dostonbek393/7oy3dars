@@ -256,15 +256,10 @@
       width: 21.5rem;
     }
 
-    &__discription1 {
-      display: none;
-    }
-
-    &__discription2 {
-      display: none;
-    }
-
-    &__time {
+    &__discription1,
+    &__discription2,
+    &__time,
+    &__title {
       display: none;
     }
 
@@ -275,10 +270,6 @@
     &__image {
       width: 19rem;
       gap: 0.5rem;
-    }
-
-    &__title {
-      display: none;
     }
   }
 }

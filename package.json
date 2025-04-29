@@ -17,6 +17,7 @@
     "react-hot-toast": "^2.5.2",
     "react-redux": "^9.2.0",
     "react-router-dom": "6.4",
+    "react-select": "^5.10.1",
     "sass": "^1.86.3",
     "sonner": "^2.0.3"
   },

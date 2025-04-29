@@ -1,0 +1,243 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: $white;
+  border-radius: 1.2rem;
+  width: 56rem;
+  height: 49rem;
+  padding: 3.2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  h2 {
+    font-size: $text-preset-1;
+    font-weight: 700;
+    color: $grey-900;
+  }
+
+  .closeBtn {
+    background: none;
+    cursor: pointer;
+  }
+}
+
+.modalDescription {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #444;
+    font-size: 14px;
+  }
+}
+
+.dropdownContainer {
+  position: relative;
+}
+
+.dropdownToggle {
+  position: relative;
+  padding-right: 25px;
+}
+
+.dropdownToggle::after {
+  content: " ";
+  position: absolute;
+  right: 2rem;
+  top: 2.5rem;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background-image: url("./icon-caret-down.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: transform 0.2s;
+}
+
+.dropdownToggle {
+  width: 100%;
+  height: 4.5rem;
+  padding: 1.2rem 2rem;
+  border: 1px solid $beige-500;
+  border-radius: 0.8rem;
+  background-color: $white;
+  text-align: left;
+  font-size: 14px;
+  cursor: pointer;
+
+  &:hover {
+    border-color: #aaa;
+  }
+}
+
+.colorDropdownToggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+
+  .colorPreview {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.potNameInput {
+  width: 100%;
+  height: 4.5rem;
+  padding: 1.2rem 2rem;
+  border: 1px solid $beige-500;
+  border-radius: 0.8rem;
+  font-size: $text-preset-4;
+}
+
+.combinedInputDropdown {
+  position: relative;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 4px;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.colorInput {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 4px;
+  background: white;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 14px;
+
+  &:hover {
+    background-color: #f5f5f5;
+  }
+}
+
+.colorDropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 4px;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.colorOption {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.amountInput {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+
+  span {
+    padding: 0 12px;
+    background-color: #f5f5f5;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+  }
+
+  input {
+    flex: 1;
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.modalActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 2rem;
+
+  button {
+    flex: 1;
+    height: 5.3rem;
+    padding: 1.6rem;
+    border-radius: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: $text-preset-4;
+    transition: all 0.2s;
+  }
+}
+
+.saveBtn {
+  background-color: $grey-900;
+  color: $white;
+  border: none;
+}

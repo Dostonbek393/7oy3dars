@@ -1,29 +1,46 @@
 import { useCollectionsData } from "../../hooks/useCollectionsData";
 import style from "./Posts.module.scss";
+import { useState } from "react";
+import AddPotmodal from "../../components/modal/AddPotmodal";
 
 function Posts() {
-  const { data, isPending } = useCollectionsData();
+  const { data, isPending, mutate } = useCollectionsData();
+  const [showModal, setShowModal] = useState(false);
   console.log(data);
 
-  if (
-    isPending ||
-    !data ||
-    !data.balance ||
-    !data.transactions ||
-    !data.pots ||
-    !data.budgets
-  ) {
+  const handleAddBudget = (newPots) => {
+    console.log("New pots:", newPots);
+    mutate({
+      ...data,
+      pots: [...data.pots, { ...newPots, id: Date.now() }],
+    });
+  };
+
+  if (isPending || !data || !data.pots) {
     return <div>Loading...</div>;
   }
 
-  const { balance, transactions, pots, budgets } = data;
+  const { pots } = data;
 
   return (
     <div className={style.pots}>
       <div className={style.pots__title}>
         <h2 className={style.pots__text}>Pots</h2>
-        <button className={style.pots__buttonAdd}>+ Add New Pot</button>
+        <button
+          className={style.pots__buttonAdd}
+          onClick={() => setShowModal(true)}
+        >
+          + Add New Pot
+        </button>
       </div>
+
+      {showModal && (
+        <AddPotmodal
+          onClose={() => setShowModal(false)}
+          onAddBudget={handleAddBudget}
+        />
+      )}
+
       <div className={style.pots__cart}>
         {pots.map((p) => {
           const percentage = (p.total / p.target) * 100;

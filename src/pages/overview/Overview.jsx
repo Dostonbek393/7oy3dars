@@ -117,7 +117,7 @@ function Overview() {
                 </span>
               </div>
 
-              {transactions.map((t) => {
+              {transactions.slice(0, 5).map((t) => {
                 const formattedDate = new Date(t.date).toLocaleDateString(
                   "en-GB",
                   {

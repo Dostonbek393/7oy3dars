@@ -5,23 +5,61 @@ function Transactions() {
   const { data, isPending } = useCollectionsData();
   console.log(data);
 
-  if (
-    isPending ||
-    !data ||
-    !data.balance ||
-    !data.transactions ||
-    !data.pots ||
-    !data.budgets
-  ) {
+  if (isPending || !data || !data.transactions) {
     return <div>Loading...</div>;
   }
 
-  const { balance, transactions, pots, budgets } = data;
+  const { transactions } = data;
 
   return (
     <div className={style.transactions}>
       <h2 className={style.transactions__text}>Transactions</h2>
       <div className={style.transactions__cart}>
+        <div className={style.transactions__input}>
+          <input
+            type="text"
+            class={style.transactions__searchInput}
+            placeholder="Search transaction"
+          />
+          <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              <h3
+                style={{ fontSize: "14px", fontWeight: 400, color: "#696868" }}
+              >
+                Sort by
+              </h3>
+              <div class={style.transactions__dropdown}>
+                <button class={style.transactions__dropbtn}>Latest</button>
+                <div class={style.transactions__dropdowncontent}>
+                  <a href="#">Oldest</a>
+                  <a href="#">A to Z</a>
+                  <a href="#">Z to A</a>
+                  <a href="#">Highest</a>
+                  <a href="#">Lowest</a>
+                </div>
+              </div>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              <h3
+                style={{ fontSize: "14px", fontWeight: 400, color: "#696868" }}
+              >
+                Category
+              </h3>
+              <div class={style.transactions__dropdown}>
+                <button class={style.transactions__dropbtn1}>
+                  All Transactions
+                </button>
+                <div class={style.transactions__dropdowncontent1}>
+                  <a href="#">Entertainment</a>
+                  <a href="#">Bills</a>
+                  <a href="#">Groceries</a>
+                  <a href="#">Dining Out</a>
+                  <a href="#">Transportation</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className={style.transactions__texts}>
           <h3 className={style.transactions__textss}>Recipient / Sender</h3>
           <div className={style.transactions__title}>

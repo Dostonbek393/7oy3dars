@@ -21,8 +21,8 @@ function Transactions() {
             class={style.transactions__searchInput}
             placeholder="Search transaction"
           />
-          <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <div className={style.transactions__discription}>
+            <div className={style.transactions__discription1}>
               <h3
                 style={{ fontSize: "14px", fontWeight: 400, color: "#696868" }}
               >
@@ -39,7 +39,7 @@ function Transactions() {
                 </div>
               </div>
             </div>
-            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <div className={style.transactions__discription2}>
               <h3
                 style={{ fontSize: "14px", fontWeight: 400, color: "#696868" }}
               >

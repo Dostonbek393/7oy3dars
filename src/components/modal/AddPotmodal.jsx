@@ -6,7 +6,6 @@ function AddPotmodal({ onClose }) {
   const [amount, setAmount] = useState("");
   const [selectedColor, setSelectedColor] = useState("Pink");
   const [isColorDropdownOpen, setIsColorDropdownOpen] = useState(false);
-  const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
 
   const colors = [
     "Green",
@@ -17,7 +16,6 @@ function AddPotmodal({ onClose }) {
     "Purple",
     "Turquoise",
   ];
-  const categories = [];
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -45,33 +43,13 @@ function AddPotmodal({ onClose }) {
         <form onSubmit={handleSubmit}>
           <div className={style.formGroup}>
             <label>Pot Name</label>
-            <div className={style.dropdownContainer}>
-              <button
-                type="button"
-                className={style.dropdownToggle}
-                onClick={() =>
-                  setIsCategoryDropdownOpen(!isCategoryDropdownOpen)
-                }
-              >
-                {category || "e.g. Rainy Days"}
-              </button>
-              {isCategoryDropdownOpen && (
-                <div className={style.dropdownMenu}>
-                  {categories.map((cat) => (
-                    <div
-                      key={cat}
-                      className={style.dropdownItem}
-                      onClick={() => {
-                        setCategory(cat);
-                        setIsCategoryDropdownOpen(false);
-                      }}
-                    >
-                      {cat}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
+            <input
+              type="text"
+              placeholder="e.g. Rainy Days"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              className={style.potNameInput}
+            />
           </div>
 
           <div className={style.formGroup}>

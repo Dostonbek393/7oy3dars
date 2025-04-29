@@ -34,6 +34,24 @@
     justify-content: space-between;
   }
 
+  &__discription {
+    display: flex;
+    align-items: center;
+    gap: 2.4rem;
+  }
+
+  &__discription1 {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  &__discription2 {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
   &__dropbtn {
     width: 11.3rem;
     height: 4.5rem;
@@ -230,8 +248,20 @@
     padding: 1.6rem;
 
     &__cart {
-      width: 37.5rem;
+      width: 34.3rem;
       padding: 2.4rem 2rem;
+    }
+
+    &__searchInput {
+      width: 21.5rem;
+    }
+
+    &__discription1 {
+      display: none;
+    }
+
+    &__discription2 {
+      display: none;
     }
 
     &__time {

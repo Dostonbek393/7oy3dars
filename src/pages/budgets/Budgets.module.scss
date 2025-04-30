@@ -109,6 +109,10 @@
     background-color: white;
     padding: 3.2rem;
     margin-bottom: 2.4rem;
+
+    :global(.collapsed) & {
+      width: 84rem;
+    }
   }
 
   &__List {

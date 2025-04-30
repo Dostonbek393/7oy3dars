@@ -13,7 +13,7 @@ import {
   Register,
   Transactions,
 } from "./pages";
-
+[];
 import { ProtectedRoutes } from "./components";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";

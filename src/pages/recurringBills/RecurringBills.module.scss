@@ -64,12 +64,16 @@
   }
 
   &__sortSection {
-    width: 69.9rem;
+    width: 79rem;
     height: auto;
     background-color: $white;
     border-radius: 1.2rem;
     padding: 3.2rem;
     margin-top: 3.2rem;
+
+    :global(.collapsed) & {
+      width: 100rem;
+    }
   }
 
   &__carts {
@@ -208,6 +212,10 @@
 
 @media screen and (max-width: 800px) {
   .recurringBills {
+    &__sortSection {
+      width: 68.8rem;
+    }
+
     &__cart {
       flex-direction: column;
     }

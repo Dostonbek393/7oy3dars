@@ -36,8 +36,6 @@ function RecurringBills() {
     0
   );
 
-  const billTitles = [...new Set(recurringBills.map((bill) => bill.name))];
-
   const billsByDate = recurringBills.reduce((acc, bill) => {
     const date = new Date(bill.date);
     const day = date.getDate();
@@ -101,7 +99,7 @@ function RecurringBills() {
           >
             <input
               type="text"
-              class={style.recurringBills__searchInput}
+              className={style.recurringBills__searchInput}
               placeholder="Search transaction"
             />
             <div className={style.recurringBills__discription1}>
@@ -110,9 +108,11 @@ function RecurringBills() {
               >
                 Sort by
               </h3>
-              <div class={style.recurringBills__dropdown}>
-                <button class={style.recurringBills__dropbtn}>Latest</button>
-                <div class={style.recurringBills__dropdowncontent}>
+              <div className={style.recurringBills__dropdown}>
+                <button className={style.recurringBills__dropbtn}>
+                  Latest
+                </button>
+                <div className={style.recurringBills__dropdowncontent}>
                   <a href="#">Oldest</a>
                   <a href="#">A to Z</a>
                   <a href="#">Z to A</a>

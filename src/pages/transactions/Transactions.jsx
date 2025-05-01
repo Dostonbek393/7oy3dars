@@ -18,7 +18,7 @@ function Transactions() {
         <div className={style.transactions__input}>
           <input
             type="text"
-            class={style.transactions__searchInput}
+            className={style.transactions__searchInput}
             placeholder="Search transaction"
           />
           <div className={style.transactions__discription}>
@@ -28,9 +28,9 @@ function Transactions() {
               >
                 Sort by
               </h3>
-              <div class={style.transactions__dropdown}>
-                <button class={style.transactions__dropbtn}>Latest</button>
-                <div class={style.transactions__dropdowncontent}>
+              <div className={style.transactions__dropdown}>
+                <button className={style.transactions__dropbtn}>Latest</button>
+                <div className={style.transactions__dropdowncontent}>
                   <a href="#">Oldest</a>
                   <a href="#">A to Z</a>
                   <a href="#">Z to A</a>
@@ -45,11 +45,11 @@ function Transactions() {
               >
                 Category
               </h3>
-              <div class={style.transactions__dropdown}>
-                <button class={style.transactions__dropbtn1}>
+              <div className={style.transactions__dropdown}>
+                <button className={style.transactions__dropbtn1}>
                   All Transactions
                 </button>
-                <div class={style.transactions__dropdowncontent1}>
+                <div className={style.transactions__dropdowncontent1}>
                   <a href="#">Entertainment</a>
                   <a href="#">Bills</a>
                   <a href="#">Groceries</a>
